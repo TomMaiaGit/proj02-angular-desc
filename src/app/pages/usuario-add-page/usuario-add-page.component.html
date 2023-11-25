@@ -1,0 +1,31 @@
+<!-- Com ngSubmit passamos a função que recebe os dados após submit do botão
+ser acionado pois o botão está como type = submit -->
+<form (ngSubmit)="salvar()">
+<div>
+    <mat-form-field>
+        <mat-label> Nome </mat-label>
+        <input matInput type="text" placeholder="NOME" name="nome" [(ngModel)]="usr.nome" required/>
+    </mat-form-field>
+
+</div>
+<div>
+    <mat-form-field>
+        <mat-label> Idade </mat-label>
+        <input matInput type="text" placeholder="IDADE" name="idade" [(ngModel)]="usr.idade" required>
+    </mat-form-field>
+</div>
+<div>
+    <mat-form-field appearance="fill">
+        <mat-label > Sexo </mat-label>
+        <mat-select  [(ngModel)]="usr.genero" name="genero">
+            <mat-option  *ngFor=" let gen of gen" [value]="gen" > {{gen}} </mat-option>
+           <!-- <mat-option> Masculino </mat-option> 
+            <mat-option> Feminino </mat-option> -->
+        </mat-select>
+    </mat-form-field>
+</div>
+<div>
+    <button type="submit" mat-raised-button color="primary"> SALVAR </button>
+</div>
+
+</form>
